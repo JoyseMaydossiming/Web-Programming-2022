@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.body {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+.box1 {
+  background-color: #fbf46d;
+  width: 20%;
+  height: 600px;
+  border: 2px solid black;
+}
+.box2 {
+  background-color: #77e4d4;
+  width: 20%;
+  height: 600px;
+  border: 2px solid black;
+}
+.box3 {
+  background-color: #b4fe98;
+  width: 20%;
+  height: 600px;
+  border: 2px solid black;
+}
+.box4 {
+  background-color: #ff865e;
+  width: 20%;
+  height: 600px;
+  border: 2px solid black;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <form id="form" action="" method="GET" onsubmit="return onSubmit()">
+      <div class="title">Ticket Reservations</div>
+      <!-- User Name input -->
+      <div id="main">
+        <div>
+          <label for="name">Customer's Name :</label>
+          <input id="name" name="name" placeholder="Your Name" />
+        </div>
+        <div id="nameerror" style="color: red"></div>
+      </div>
+
+      <!-- Email input -->
+      <div id="main">
+        <div>
+          <label for="email">Email :</label>
+          <input id="email" name="email" placeholder="Your Email" />
+        </div>
+        <div id="emailerror" style="color: red"></div>
+      </div>
+
+      <!-- Time input -->
+      <div id="main">
+        <div>
+          <label for="time">Hours of Departure :</label>
+          <input id="time" name="time" type="time" />
+        </div>
+        <div id="timeerror" style="color: red"></div>
+      </div>
+
+      <!-- Destination input -->
+      <div id="main">
+        <div>
+          <label for="destination">Departure Destination :</label>
+          <input
+            id="destination"
+            name="destination"
+            placeholder="Your destination"
+          />
+        </div>
+        <div id="desterror" style="color: red"></div>
+      </div>
+
+      <!-- People input -->
+      <div id="main">
+        <div>
+          <label for="tiket">Number of Tickets :</label>
+          <input
+            id="tiket"
+            name="tiket"
+            type="number"
+            placeholder="Your family"
+          />
+        </div>
+        <div id="tiketerror" style="color: red"></div>
+      </div>
+
+      <!-- Button -->
+      <button type="submit" class="tombol">Submit</button>
+
+      <!-- Output -->
+      <div class="tampilan">
+        <div id="namevalid" style="color: green"></div>
+        <div id="emailvalid" style="color: green"></div>
+        <div id="timevalid" style="color: green"></div>
+        <div id="destvalid" style="color: green"></div>
+        <div id="tiketvalid" style="color: green"></div>
+      </div>
+    </form>
+  </body>
+</html>

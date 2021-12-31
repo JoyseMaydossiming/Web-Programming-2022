@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Menghitung Kurs Rupiah</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="rupiah.js"></script>
+  </head>
+  <body>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Nilai Dollar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Masukan nilai dollar</td>
+          </tr>
+          <tr>
+            <td><input type="text" onfocus="this.value=''" id="dollar" /></td>
+          </tr>
+          <tr>
+            <td>Hasil</td>
+          </tr>
+          <tr>
+            <td><button onclick="hitung()">Hitung</button></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Nilai Rupiah</td>
+          </tr>
+          <tr>
+            <td><input type="text" id="rupiah" disabled /></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </body>
+</html>

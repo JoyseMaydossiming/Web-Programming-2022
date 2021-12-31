@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Menghitung Biaya Parkir</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="parkir.js"></script>
+  </head>
+  <body>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Biaya Parkir</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jam Masuk</td>
+          </tr>
+          <tr>
+            <td><input type="text" onfocus="this.value=''" id="masuk" /></td>
+          </tr>
+          <tr>
+            <td>Jam Keluar</td>
+          </tr>
+          <tr>
+            <td><input type="text" onfocus="this.value=''" id="keluar" /></td>
+          </tr>
+          <tr>
+            <td>Hasil</td>
+          </tr>
+          <tr>
+            <td><button onclick="hitungParkir()">Hitung</button></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Lama Parkir</td>
+          </tr>
+          <tr>
+            <td><input type="text" id="lama" disabled /></td>
+          </tr>
+          <tr>
+            <td>Biaya Parkir</td>
+          </tr>
+          <tr>
+            <td><input type="text" id="biaya" disabled /></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </body>
+</html>

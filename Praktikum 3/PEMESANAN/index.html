@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pemesanan Barang</title>
+  </head>
+  <body
+    style="
+      background-color: #f9f3f3;
+      max-width: 1350px !important;
+      font-family: Poppins, Helvetica, sans-serif;
+    "
+  >
+    <header>
+      <div
+        style="
+          background-color: #dddddd;
+          padding: 15px;
+          display: grid;
+          grid-template-columns: 10% 70% 20%;
+        "
+      >
+        <p style="text-align: center">
+          <a href="_blank" style="color: black; text-decoration: none">Home</a
+          >&nbsp; |
+        </p>
+        <p style="text-align: center">
+          <a href="_blank" style="color: black; text-decoration: none"
+            >Generate Link</a
+          >&nbsp; |
+          <a href="_blank" style="color: black; text-decoration: none"
+            >Transaction History</a
+          >&nbsp; |
+          <a href="_blank" style="color: black; text-decoration: none">Policy</a
+          >&nbsp; |
+        </p>
+        <p style="text-align: center">
+          <a href="_blank" style="color: black; text-decoration: none">Logout</a
+          >&nbsp;
+        </p>
+      </div>
+    </header>
+    <section>
+      <div
+        style="display: grid; grid-template-columns: 25% 75%; margin-top: 50px"
+      >
+        <div class="#1" style="padding-left: 20px">
+          <img
+            src="Img/laptop-computer.png"
+            style="
+              width: 200px;
+              height: 200px;
+              padding: 20px;
+              margin-left: 15px;
+              background-color: #dddddd;
+              border: 1px solid black;
+            "
+          />
+          <button
+            style="
+              background: #72c2e9;
+              width: 242px;
+              height: 30px;
+              font-weight: bold;
+              margin-left: 15px;
+            "
+          >
+            Change Image
+          </button>
+          <br /><br />
+          <input style="margin-left: 40px" type="file" name="photo" />
+        </div>
+        <div class="#2" style="margin-left: 50px">
+          <form>
+            <label for="title">Title Here :</label>
+            <input
+              style="width: 70%; margin-left: 80px"
+              type="text"
+              id="title"
+              name="title"
+            />
+          </form>
+          <br />
+          <label for="description">Description : </label>
+          <textarea
+            style="vertical-align: top; width: 70%; margin-left: 70px"
+            rows="5"
+            id="description"
+            name="description"
+          ></textarea>
+          <br /><br />
+          <form>
+            <label for="anumber">Account Number :</label>
+            <input
+              style="width: 70%; margin-left: 30px"
+              type="number"
+              id="anumber"
+              name="anumber"
+            />
+          </form>
+          <br />
+          <label for="bankname">Bank : </label>
+          <select
+            style="vertical-align: top; width: 71%; margin-left: 115px"
+            id="transaction"
+            name="transaction"
+          >
+            <option value="BCA">BCA</option>
+            <option value="BNI">BNI</option>
+            <option value="BRI">BRI</option>
+            <option value="Mandiri">Mandiri</option>
+          </select>
+          <form>
+            <br />
+            <label for="aholder">Account Holder :</label>
+            <input
+              style="width: 70%; margin-left: 45px"
+              type="text"
+              id="aholder"
+              name="aholder"
+            />
+          </form>
+          <br />
+          <label for="transaction">Transaction : </label>
+          <select
+            style="vertical-align: top; margin-left: 70px"
+            id="transaction"
+            name="transaction"
+          >
+            <option value="volvo">1</option>
+            <option value="saab">2</option>
+            <option value="fiat">3</option>
+            <option value="audi">4</option>
+          </select>
+          <p>
+            * if the transaction is for 3 person, choose 3 from the drop-down
+            list
+          </p>
+          <form>
+            <input type="checkbox" id="mobile" name="mobile" value="Mobile" />
+            <label for="mobile">Send to Mobile Phone</label><br />
+            <input type="checkbox" id="email" name="email" value="Email" />
+            <label for="mobile">Send to Email</label><br /><br />
+            <label for="lmobile">Send to Mobile Phone :</label>
+            <input
+              style="width: 70%"
+              type="number"
+              id="lmobile"
+              name="lmobile"
+            /><br /><br />
+            <label for="lemail">Send to Email :</label>
+            <input
+              style="width: 70%; margin-left: 60px"
+              type="email"
+              id="lemail"
+              name="lemail"
+            />
+          </form>
+          <br />
+          <br />
+          <button
+            style="
+              background: #72c2e9;
+              width: 242px;
+              height: 30px;
+              font-weight: bold;
+            "
+          >
+            Generate Nar Link
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer style="margin-top: 50px; background-color: #dddddd">
+      <div style="padding: 15px">
+        <p style="text-align: end">
+          <span>Arrived Quickly</span>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

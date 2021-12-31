@@ -1,0 +1,98 @@
+/* CSS CHECK OUT */
+
+body {
+  background-color: #f9f3f3;
+  max-width: 1350px !important;
+  font-family: Poppins, Helvetica, sans-serif;
+}
+
+header div {
+  background-color: #dddddd;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 10% 70% 20%;
+}
+
+header div span {
+  font-weight: bold;
+  padding-left: 35px;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  padding-left: 10px;
+}
+
+.menu {
+  text-align: center;
+}
+
+.sub-menu {
+  color: black;
+  text-decoration: none;
+}
+
+.menu-akhir {
+  text-align: end;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  margin-top: 50px;
+}
+
+.info {
+  width: 100%;
+  height: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.section tr {
+  text-align: left;
+  border: 1px solid;
+  padding: 10px;
+}
+
+.border {
+  border: 1px solid;
+  border-right: none;
+  border-left: none;
+  font-size: 12px;
+}
+
+.border td {
+  width: 50%;
+}
+
+.font1 {
+  font-size: 14px;
+}
+
+.font2 {
+  font-size: 12px;
+}
+
+.font3 {
+  font-size: 12px;
+  color: #72c2e9;
+}
+
+.struk {
+  background-color: #dddddd;
+  padding-left: 20px;
+}
+
+.angka {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.button {
+  width: 80px;
+  height: 30px;
+  background: #72c2e9;
+  font-weight: bold;
+}

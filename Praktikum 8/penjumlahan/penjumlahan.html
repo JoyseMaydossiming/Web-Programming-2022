@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Penjumlahan Dua Bilangan</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="penjumlahan.js"></script>
+  </head>
+  <body>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Penjumlahan</th>
+          </tr>
+        </thead>
+      </table>
+      <form
+        id="formD"
+        name="formD"
+        action=""
+        method="post"
+        enctype="multipart/form-data"
+      >
+        Masukan nilai pertama <br />
+        <input
+          type="text"
+          id="satu"
+          onfocus="this.value=''"
+          value="0"
+          onkeyup="OnChange(this.value)"
+        />
+        Masukan nilai kedua<br />
+        <input
+          type="text"
+          id="dua"
+          onfocus="this.value=''"
+          value="0"
+          onkeyup="OnChange(this.value)"
+        />
+        Hasil Penjumlahan <br />
+        <input type="text" name="txtDisplay" value="" readonly="readonly" />
+      </form>
+    </div>
+  </body>
+</html>
