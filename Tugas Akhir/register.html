@@ -35,9 +35,9 @@
               <div class="card-body">
                 <p class="login-box-msg">Register User</p>
 
-                <form action="login.html" method="post">
+                <form action="register.html" method="post" id="loginform" autocomplete="off">
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Nama lengkap">
+                    <input type="text" class="form-control" placeholder="Nama lengkap" id="name">
                     <div class="input-group-append">
                       <div class="input-group-text">
                         <span class="fas fa-user"></span>
@@ -45,7 +45,7 @@
                     </div>
                   </div>
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="User name">
+                    <input type="text" class="form-control" placeholder="User name" id="username">
                     <div class="input-group-append">
                       <div class="input-group-text">
                         <span class="fas fa-user"></span>
@@ -53,15 +53,15 @@
                     </div>
                   </div>
                   <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Asal prodi">
+                    <input type="text" class="form-control" placeholder="Asal prodi" id="prodi">
                     <div class="input-group-append">
                       <div class="input-group-text">
-                        <span class="fas fa-chalkboard-teacher"></span>
+                        <span class="fas fa-book"></span>
                       </div>
                     </div>
                   </div>
                   <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" placeholder="Password" id="password">
                     <div class="input-group-append">
                       <div class="input-group-text">
                         <span class="fas fa-lock"></span>
@@ -69,12 +69,15 @@
                     </div>
                   </div>
                   <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Cek password">
+                    <input type="password" class="form-control" placeholder="Cek password" id="checkpassword">
                     <div class="input-group-append">
                       <div class="input-group-text">
                         <span class="fas fa-lock"></span>
                       </div>
                     </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="col-12" id="errormsg"></div>
                   </div>
                   <div class="row">
                     <div class="col-8">
@@ -91,6 +94,7 @@
                     </div>
                     <!-- /.col -->
                   </div>
+                  
                 </form>
                 <br>
                 <a href="login.html" class="text-center">Sudah memiliki akun?</a>
@@ -111,6 +115,99 @@
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
+
+  <script src="js/DataModel.js"></script>
+  <script src="js/Tools.js"></script>
+
+  <script>  
+    var user = new User();
+
+    $("#loginform").submit(function (e){
+      user.name = $("#name").val();
+      user.username = $("#username").val();
+      user.prodi = $("#prodi").val();
+      user.password = $("#password").val();
+      user.checkpassword = $("#checkpassword").val();
+
+      if(ValidateRegister(user)){
+
+        var _listUsers = localStorage.getItem('ListUser');
+
+        if(_listUsers != null){
+
+          var _listUsersObject = JSON.parse(_listUsers);
+          var _lastUser = _listUsersObject[_listUsersObject.length - 1].id; 
+          user.id = _lastUser + 1;
+          _listUsersObject.push(user);
+
+          var _usersJsonString = JSON.stringify(_listUsersObject);
+          localStorage.setItem('ListUser',_usersJsonString);
+
+        }else{
+          user.id = 1;
+          var users = [user];
+          var _usersJsonString = JSON.stringify(users);
+          localStorage.setItem('ListUser',_usersJsonString);
+        }
+
+        $("#name").val("");
+        $("#username").val("");
+        $("#prodi").val("");
+        $("#password").val("");
+        $("#checkpassword").val("");
+
+        setTimeout(function(){
+          window.location.href = "login.html"
+        } ,3000);
+
+      }
+      
+
+      return false;
+
+    });
+
+    function ValidateRegister(_user){
+      let _isvalid = true;
+      let _errvalidation = "";
+
+      if(_user.name == ""){
+        _errvalidation = "Please Fill Name";
+      }
+      else if(_user.username == ""){
+        _errvalidation = "Please Fill Username";
+      }
+      else if(_user.prodi == ""){
+        _errvalidation = "Please Fill Prodi";
+      }
+      else if(_user.password == ""){
+        _errvalidation = "Please Fill Password";
+      }
+      else if(_user.checkpassword == ""){
+        _errvalidation = "Please Fill Cek Password";
+      }
+      else if(_user.password != _user.checkpassword){
+        _errvalidation = "Please Fill Cek Password with same as Password";
+      }
+      else if(_user.username == "admin"){
+        _errvalidation = "Cannot register as Admin";
+      }
+
+      if(_errvalidation != ""){
+        _isvalid = false;
+        SetAlert("errormsg","danger",_errvalidation);
+
+      }else{
+        _isvalid = true;
+        SetAlert("errormsg","success","Success Register, Redirecting to Login...");
+      }
+
+      return _isvalid;
+
+    }
+
+  </script>
+
 </body>
 
 </html>

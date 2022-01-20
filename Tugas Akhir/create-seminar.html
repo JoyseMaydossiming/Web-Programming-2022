@@ -37,9 +37,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <li class="nav-item d-none d-sm-inline-block active">
           <a href="seminar.html" class="nav-link">Seminar</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="peserta-seminar.html" class="nav-link">Peserta</a>
-        </li>
       </ul>
 
       <!-- Right navbar links -->
@@ -188,7 +185,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.card-header -->
             <div class="row p-3">
               <div class="col-lg-6">
-                <form>
+                <form action="create-seminar.html" method="post" id="createseminarform">
                   <div class="form-group row">
                     <label for="nim" class="col-4 col-form-label">NIM</label>
                     <div class="col-6">
@@ -321,6 +318,88 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- admin SISTA App -->
   <script src="dist/js/adminlte.min.js"></script>
+
+  
+  <script src="js/DataModel.js"></script>
+  <script src="js/Tools.js"></script>
+
+  <script>  
+    $( document ).ready(function(){
+      CheckLoginSession("home");
+    });
+    function logout(){
+      localStorage.removeItem('CurrentUser');
+
+      setTimeout(function(){
+        window.location.href = "login.html"
+      } ,1000);
+    }
+    $("#createseminarform").submit(function(e){
+
+      var seminar = new Seminar();
+
+      seminar.nim = $("#nim").val();
+      seminar.nama = $("#nama").val();
+      seminar.prodi = $("#prodi").val();
+      seminar.tgl = $("#tgl").val();
+      seminar.jam = $("#jam").val();
+      seminar.ruang = $("#ruang").val();
+      seminar.judul = $("#judul").val();
+      seminar.type = $("#type").val();
+      seminar.dosen = $("#dosen").val();
+      seminar.penguji1 = $("#penguji1").val();
+      seminar.penguji2 = $("#penguji2").val();
+
+      if(ValidateCreateSeminar(seminar)){
+
+      }
+
+      return false;
+    });
+
+    function ValidateCreateSeminar(_seminar){
+      let _isvalid = true;
+      let _errvalidation = "";
+
+      if(_user.nim == ""){
+        _errvalidation = "Please Fill Nim";
+      }
+      else if(_user.nama == ""){
+        _errvalidation = "Please Fill Nama";
+      }
+      else if(_user.username == ""){
+        _errvalidation = "Please Fill Username";
+      }
+      else if(_user.prodi == ""){
+        _errvalidation = "Please Fill Prodi";
+      }
+      else if(_user.password == ""){
+        _errvalidation = "Please Fill Password";
+      }
+      else if(_user.checkpassword == ""){
+        _errvalidation = "Please Fill Cek Password";
+      }
+      else if(_user.password != _user.checkpassword){
+        _errvalidation = "Please Fill Cek Password with same as Password";
+      }
+      else if(_user.username == "admin"){
+        _errvalidation = "Cannot register as Admin";
+      }
+
+      if(_errvalidation != ""){
+        _isvalid = false;
+        SetAlert("errormsg","danger",_errvalidation);
+
+      }else{
+        _isvalid = true;
+        SetAlert("errormsg","success","Success Register, Redirecting to Login...");
+      }
+
+      return _isvalid;
+    }
+    
+  </script>
+
 </body>
 
 </html>

@@ -39,9 +39,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <li class="nav-item d-none d-sm-inline-block">
           <a href="seminar.html" class="nav-link">Seminar</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="peserta-seminar.html" class="nav-link">Peserta</a>
-        </li>
       </ul>
 
       <!-- Right navbar links -->
@@ -75,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-slide="true" href="login.html" role="button">
+          <a class="nav-link" onclick="logout()" style="cursor: pointer;">
             <i class="nav-icon fas fa-sign-out-alt"></i>
           </a>
         </li>
@@ -145,7 +142,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </ul>
             </li>
             <li class="nav-item">
-              <a href="login.html" class="nav-link">
+              <a class="nav-link" onclick="logout()" style="cursor: pointer;">
                 <!-- <i class="nav-icon fas fa-th"></i> -->
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
@@ -526,6 +523,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- admin SISTA dashboard demo (This is only for demo purposes) -->
   <script src="dist/js/pages/dashboard.js"></script>
 
+  <script src="js/DataModel.js"></script>
+  <script src="js/Tools.js"></script>
+
+  <script>
+    $( document ).ready(function(){
+      CheckLoginSession("index");
+    });
+    function logout(){
+      localStorage.removeItem('CurrentUser');
+
+      setTimeout(function(){
+            window.location.href = "login.html"
+          } ,1000);
+    }
+  </script>
 </body>
 
 </html>
