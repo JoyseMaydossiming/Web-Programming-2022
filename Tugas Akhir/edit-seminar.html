@@ -34,7 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <li class="nav-item d-none d-sm-inline-block">
           <a href="index.html" class="nav-link">Home</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
+        <li class="nav-item d-none d-sm-inline-block active">
           <a href="seminar.html" class="nav-link">Seminar</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
@@ -169,6 +169,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item"><a href="seminar.html">Seminar</a></li>
                 <li class="breadcrumb-item active">Form Seminar - Edit</li>
               </ol>
@@ -198,7 +199,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <label for="nim" class="col-4 col-form-label">NIM</label>
                     <div class="col-6">
                       <div class="input-group">
-                        <input id="nim" name="nim" placeholder="NIM" type="text" class="form-control">
+                        <input id="nim" name="nim" value="0102001" type="text" class="form-control">
                       </div>
                     </div>
                   </div>
@@ -206,7 +207,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <label for="nama" class="col-4 col-form-label">Nama</label>
                     <div class="col-6">
                       <div class="input-group">
-                        <input id="nama" name="nama" placeholder="Nama" type="text" class="form-control">
+                        <input id="nama" name="nama" value="Dieogo Armando" type="text" class="form-control">
                       </div>
                     </div>
                   </div>
@@ -214,8 +215,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <label for="prodi" class="col-4 col-form-label">Prodi</label>
                     <div class="col-6">
                       <select id="prodi" name="prodi" class="custom-select">
+                        <option value="ti">Teknik Informatika</option>
                         <option value="si">Sistem Informasi</option>
-                        <option value="ti">Teknik Informasi</option>
                       </select>
                     </div>
                   </div>
@@ -223,7 +224,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <label for="tgl" class="col-4 col-form-label">Tanggal Seminar</label>
                     <div class="col-6">
                       <div class="input-group">
-                        <input id="tgl" name="tgl" type="date" class="form-control">
+                        <input id="tgl" name="tgl" type="text" class="form-control" value="04/01/2021">
                       </div>
                     </div>
                   </div>
@@ -231,7 +232,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <label for="jam" class="col-4 col-form-label">Jam Seminar</label>
                     <div class="col-6">
                       <div class="input-group">
-                        <input id="jam" name="jam" type="time" class="form-control">
+                        <input id="jam" name="jam" type="text" class="form-control" value="10.00">
                       </div>
                     </div>
                   </div>
@@ -239,7 +240,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <label for="ruang" class="col-4 col-form-label">Ruangan</label>
                     <div class="col-6">
                       <div class="input-group">
-                        <input id="ruang" name="ruang" placeholder="B2304" type="text" class="form-control">
+                        <input id="ruang" name="ruang" value="Zoom Online" type="text" class="form-control">
                       </div>
                     </div>
                   </div>
@@ -250,7 +251,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="form-group row">
                     <label for="judul" class="col-4 col-form-label">Judul TA</label>
                     <div class="col-6">
-                      <textarea id="judul" name="judul" cols="40" rows="2" class="form-control"></textarea>
+                      <textarea id="judul" name="judul" cols="40" rows="2"
+                        class="form-control">Rancang Bangun Aplikasi Seminar Tugas Akhir Berbasis Web Menggunakan MVC Framework</textarea>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -295,7 +297,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </div>
                   <div class="form-group row">
                     <div class="offset-4 col-6">
-                      <button name="submit" type="submit" class="btn btn-primary"><a href="peserta-seminar.html" class="text-white">Update</a></button>
+                      <button name="submit" type="submit" class="btn btn-primary"><a href="seminar.html"
+                          class="text-white">Update</a></button>
                     </div>
                   </div>
                 </form>
