@@ -70,7 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" onclick="logout()" style="cursor: pointer;">
+          <a class="nav-link" data-slide="true" href="login.html" role="button">
             <i class="nav-icon fas fa-sign-out-alt"></i>
           </a>
         </li>
@@ -139,7 +139,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" onclick="logout()" style="cursor: pointer;">
+              <a href="login.html" class="nav-link">
+                <!-- <i class="nav-icon fas fa-th"></i> -->
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
                   Logout
@@ -182,116 +183,121 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <h3 class="card-title">Form Daftar Seminar TA</h3>
             </div>
             <!-- /.card-header -->
-            <div class="row p-3">
-              <div class="col-lg-6">
-                <form action="create-seminar.html" method="post" id="createseminarform">
-                  <div class="form-group row">
-                    <label for="nim" class="col-4 col-form-label">NIM</label>
-                    <div class="col-6">
-                      <div class="input-group">
-                        <input id="nim" name="nim" placeholder="NIM" type="text" class="form-control">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="nama" class="col-4 col-form-label">Nama</label>
-                    <div class="col-6">
-                      <div class="input-group">
-                        <input id="nama" name="nama" placeholder="Nama" type="text" class="form-control">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="prodi" class="col-4 col-form-label">Prodi</label>
-                    <div class="col-6">
-                      <select id="prodi" name="prodi" class="custom-select">
-                        <option value="si">Sistem Informasi</option>
-                        <option value="ti">Teknik Informasi</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="tgl" class="col-4 col-form-label">Tanggal Seminar</label>
-                    <div class="col-6">
-                      <div class="input-group">
-                        <input id="tgl" name="tgl" type="date" class="form-control">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="jam" class="col-4 col-form-label">Jam Seminar</label>
-                    <div class="col-6">
-                      <div class="input-group">
-                        <input id="jam" name="jam" type="time" class="form-control">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="ruang" class="col-4 col-form-label">Ruangan</label>
-                    <div class="col-6">
-                      <div class="input-group">
-                        <input id="ruang" name="ruang" placeholder="B2304" type="text" class="form-control">
-                      </div>
-                    </div>
-                  </div>
-                </form>
+            
+            <form action="create-seminar.html" method="post" id="createseminarform" autocomplete="off">
+              <div class="row p-2">
+                <div class="input-group">
+                  <div class="col-12" id="errormsg"></div>
+                </div>
               </div>
-              <div class="col-lg-6">
-                <form>
-                  <div class="form-group row">
-                    <label for="judul" class="col-4 col-form-label">Judul TA</label>
-                    <div class="col-6">
-                      <textarea id="judul" name="judul" cols="40" rows="2" class="form-control"></textarea>
+              <div class="row p-3">
+                <div class="col-lg-6">
+                    <div class="form-group row">
+                      <label for="nim" class="col-4 col-form-label">NIM</label>
+                      <div class="col-6">
+                        <div class="input-group">
+                          <input id="nim" name="nim" placeholder="NIM" type="text" class="form-control">
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="seminar" class="col-4 col-form-label">Seminar</label>
-                    <div class="col-6">
-                      <select id="seminar" name="seminar" class="custom-select">
-                        <option value="proposal">Proposal</option>
-                        <option value="hasil">Seminar Hasil</option>
-                        <option value="akhir">Seminar Akhir</option>
-                      </select>
+                    <div class="form-group row">
+                      <label for="nama" class="col-4 col-form-label">Nama</label>
+                      <div class="col-6">
+                        <div class="input-group">
+                          <input id="nama" name="nama" placeholder="Nama" type="text" class="form-control">
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="dosen" class="col-4 col-form-label">Pembimbing</label>
-                    <div class="col-6">
-                      <select id="dosen" name="dosen" class="custom-select">
-                        <option value="sirojul">Sirojul Munir, S.SI, M.Kom.</option>
-                        <option value="rusmanto">Drs. Rusmanto, M.M.,</option>
-                        <option value="sapto">Sapto Waluyo, S.Sos, M.Sc.</option>
-                      </select>
+                    <div class="form-group row">
+                      <label for="prodi" class="col-4 col-form-label">Prodi</label>
+                      <div class="col-6">
+                        <select id="prodi" name="prodi" class="custom-select">
+                          <option value="si">Sistem Informasi</option>
+                          <option value="ti">Teknik Informasi</option>
+                        </select>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="penguji1" class="col-4 col-form-label">Penguji 1</label>
-                    <div class="col-6">
-                      <select id="penguji1" name="penguji1" class="custom-select">
-                        <option value="rio">Ahmad Rio M.SI</option>
-                        <option value="suhendi">Suhendi, M.M.S.I, S.T</option>
-                        <option value="warsono">Warsono, S.Kom, M.Ti</option>
-                      </select>
+                    <div class="form-group row">
+                      <label for="tgl" class="col-4 col-form-label">Tanggal Seminar</label>
+                      <div class="col-6">
+                        <div class="input-group">
+                          <input id="tgl" name="tgl" type="date" class="form-control">
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="penguji2" class="col-4 col-form-label">Penguji 2</label>
-                    <div class="col-6">
-                      <select id="penguji2" name="penguji2" class="custom-select">
-                        <option value="amalia">Amalia Rahmah M.T</option>
-                        <option value="nasrul">Nasrul, S.Kom, M.Kom</option>
-                        <option value="yekti">Yekti Wirani, S.T, M.Ti</option>
-                      </select>
+                    <div class="form-group row">
+                      <label for="jam" class="col-4 col-form-label">Jam Seminar</label>
+                      <div class="col-6">
+                        <div class="input-group">
+                          <input id="jam" name="jam" type="time" class="form-control">
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="offset-4 col-6">
-                      <button name="submit" type="submit" class="btn btn-primary"><a href="seminar.html" class="text-white">Buat</a></button>
+                    <div class="form-group row">
+                      <label for="ruang" class="col-4 col-form-label">Ruangan</label>
+                      <div class="col-6">
+                        <div class="input-group">
+                          <input id="ruang" name="ruang" placeholder="B2304" type="text" class="form-control">
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </form>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group row">
+                      <label for="judul" class="col-4 col-form-label">Judul TA</label>
+                      <div class="col-6">
+                        <textarea id="judul" name="judul" cols="40" rows="2" class="form-control"></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="seminar" class="col-4 col-form-label">Seminar</label>
+                      <div class="col-6">
+                        <select id="typeseminar" name="typeseminar" class="custom-select">
+                          <option value="Proposal">Proposal</option>
+                          <option value="Seminar Hasil">Seminar Hasil</option>
+                          <option value="Seminar Akhir">Seminar Akhir</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="dosen" class="col-4 col-form-label">Pembimbing</label>
+                      <div class="col-6">
+                        <select id="dosen" name="dosen" class="custom-select">
+                          <option value="sirojul">Sirojul Munir, S.SI, M.Kom.</option>
+                          <option value="rusmanto">Drs. Rusmanto, M.M.,</option>
+                          <option value="sapto">Sapto Waluyo, S.Sos, M.Sc.</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="penguji1" class="col-4 col-form-label">Penguji 1</label>
+                      <div class="col-6">
+                        <select id="penguji1" name="penguji1" class="custom-select">
+                          <option value="rio">Ahmad Rio M.SI</option>
+                          <option value="suhendi">Suhendi, M.M.S.I, S.T</option>
+                          <option value="warsono">Warsono, S.Kom, M.Ti</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="penguji2" class="col-4 col-form-label">Penguji 2</label>
+                      <div class="col-6">
+                        <select id="penguji2" name="penguji2" class="custom-select">
+                          <option value="amalia">Amalia Rahmah M.T</option>
+                          <option value="nasrul">Nasrul, S.Kom, M.Kom</option>
+                          <option value="yekti">Yekti Wirani, S.T, M.Ti</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="offset-4 col-6">
+                        <button name="submit" type="submit" class="btn btn-primary"><a class="text-white">Buat</a></button>
+                      </div>
+                    </div>
+                </div>
               </div>
-            </div>
+            </form>
+
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
@@ -344,13 +350,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
       seminar.jam = $("#jam").val();
       seminar.ruang = $("#ruang").val();
       seminar.judul = $("#judul").val();
-      seminar.type = $("#type").val();
+      seminar.typeseminar = $("#typeseminar").val();
       seminar.dosen = $("#dosen").val();
       seminar.penguji1 = $("#penguji1").val();
       seminar.penguji2 = $("#penguji2").val();
 
       if(ValidateCreateSeminar(seminar)){
+        // console.log("success add");
+        let _listSeminar = localStorage.getItem('ListSeminar');
+        if(_listSeminar != null){
 
+          var _listSeminarObject = JSON.parse(_listSeminar);
+          var _lastSeminar = _listSeminarObject[_listSeminarObject.length - 1].id; 
+          seminar.id = _lastSeminar + 1;
+          _listSeminarObject.push(seminar);
+
+          var _SeminarJsonString = JSON.stringify(_listSeminarObject);
+          localStorage.setItem('ListSeminar',_SeminarJsonString);
+
+        }
+        else{
+          seminar.id = 1;
+          var _seminar = [seminar];
+          var _SeminarJsonString = JSON.stringify(_seminar);
+          localStorage.setItem('ListSeminar',_SeminarJsonString);
+        }
+
+        setTimeout(function(){
+          window.location.href = "seminar.html"
+        } ,2000);
       }
 
       return false;
@@ -360,29 +388,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
       let _isvalid = true;
       let _errvalidation = "";
 
-      if(_user.nim == ""){
+      if(_seminar.nim == ""){
         _errvalidation = "Please Fill Nim";
       }
-      else if(_user.nama == ""){
+      else if(_seminar.nama == ""){
         _errvalidation = "Please Fill Nama";
       }
-      else if(_user.username == ""){
-        _errvalidation = "Please Fill Username";
+      else if(_seminar.prodi == ""){
+        _errvalidation = "Please Choose Prodi";
       }
-      else if(_user.prodi == ""){
-        _errvalidation = "Please Fill Prodi";
+      else if(_seminar.tgl == ""){
+        _errvalidation = "Please Fill Tanggal";
       }
-      else if(_user.password == ""){
-        _errvalidation = "Please Fill Password";
+      else if(_seminar.jam == ""){
+        _errvalidation = "Please Fill Jam";
       }
-      else if(_user.checkpassword == ""){
-        _errvalidation = "Please Fill Cek Password";
+      else if(_seminar.ruang == ""){
+        _errvalidation = "Please Fill Ruangan";
       }
-      else if(_user.password != _user.checkpassword){
-        _errvalidation = "Please Fill Cek Password with same as Password";
+      else if(_seminar.judul == ""){
+        _errvalidation = "Please Fill Judul";
       }
-      else if(_user.username == "admin"){
-        _errvalidation = "Cannot register as Admin";
+      else if(_seminar.typeseminar == ""){
+        _errvalidation = "Please Fill Type Seminar";
+      }
+      else if(_seminar.dosen == ""){
+        _errvalidation = "Please Fill Dosen";
+      }
+      else if(_seminar.penguji1 == ""){
+        _errvalidation = "Please Fill Penguji1";
+      }
+      else if(_seminar.penguji2 == ""){
+        _errvalidation = "Please Fill Penguji2";
       }
 
       if(_errvalidation != ""){
@@ -391,7 +428,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       }else{
         _isvalid = true;
-        SetAlert("errormsg","success","Success Register, Redirecting to Login...");
+        SetAlert("errormsg","success","Success Create New Seminar");
       }
 
       return _isvalid;

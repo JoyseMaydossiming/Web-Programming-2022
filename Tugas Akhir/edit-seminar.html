@@ -70,7 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" onclick="logout()" style="cursor: pointer;">
+          <a class="nav-link" data-slide="true" href="login.html" role="button">
             <i class="nav-icon fas fa-sign-out-alt"></i>
           </a>
         </li>
@@ -140,7 +140,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" onclick="logout()" style="cursor: pointer;">
+              <a href="login.html" class="nav-link">
+                <!-- <i class="nav-icon fas fa-th"></i> -->
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
                   Logout
@@ -178,14 +179,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Main content -->
       <div class="content">
         <div class="container-fluid">
-          <div class="col-4 p-3">
-            <button type="button" class="btn btn-primary"><a href="create-seminar.html" class="text-white"><i
-                  class="fas fa-plus"></i> Tambah Seminar
-                Baru</a></button>
-          </div>
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Form Daftar Seminar TA</h3>
+              <h3 class="card-title">Edit Seminar TA</h3>
             </div>
             <!-- /.card-header -->
             <div class="row p-3">
@@ -194,6 +190,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="form-group row">
                     <label for="nim" class="col-4 col-form-label">NIM</label>
                     <div class="col-6">
+                      <input type="hidden" id="id" value=0>
                       <div class="input-group">
                         <input id="nim" name="nim" value="0102001" type="text" class="form-control">
                       </div>
@@ -252,9 +249,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="seminar" class="col-4 col-form-label">Seminar</label>
+                    <label for="typeseminar" class="col-4 col-form-label">Seminar</label>
                     <div class="col-6">
-                      <select id="seminar" name="seminar" class="custom-select">
+                      <select id="typeseminar" name="typeseminar" class="custom-select">
                         <option value="proposal">Proposal</option>
                         <option value="hasil">Seminar Hasil</option>
                         <option value="akhir">Seminar Akhir</option>
@@ -333,15 +330,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <script>
     $( document ).ready(function(){
-      CheckLoginSession("index");
+      CheckLoginSession("edit-seminar");
+      
+      let params = (new URL(document.location)).searchParams;
+      let id = params.get("id");
+      loadDetail(parseInt(id-1));
     });
-    function logout(){
-      localStorage.removeItem('CurrentUser');
 
-      setTimeout(function(){
-            window.location.href = "login.html"
-          } ,1000);
+  function loadDetail(id){
+    let _htmlEl = $("#bodyseminar");
+
+    let _listSeminar = localStorage.getItem('ListSeminar');
+    if(_listSeminar != null){
+      var _listSeminarObject = JSON.parse(_listSeminar);
+
+      let el = _listSeminarObject[id];
+      console.log(_listSeminarObject);
+      $("#id").val(el.id);
+      
+      $("#nim").val(el.nim);
+      $("#nama").val(el.nama);
+      $("#prodi").val(el.prodi);
+      $("#tgl").val(el.tgl);
+      $("#jam").val(el.jam);
+      $("#ruang").val(el.ruang);
+      $("#judul").val(el.judul);
+      $("#typeseminar").val(el.typeseminar);
+      $("#dosen").val(el.dosen);
+      $("#penguji1").val(el.penguji1);
+      $("#penguji2").val(el.penguji2);
+      
     }
+
+  }
   </script>
 </body>
 

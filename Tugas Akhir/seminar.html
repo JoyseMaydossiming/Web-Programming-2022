@@ -70,7 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" onclick="logout()" style="cursor: pointer;">
+          <a class="nav-link" data-slide="true" href="login.html" role="button">
             <i class="nav-icon fas fa-sign-out-alt"></i>
           </a>
         </li>
@@ -139,7 +139,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" onclick="logout()" style="cursor: pointer;">
+              <a href="login.html" class="nav-link">
+                <!-- <i class="nav-icon fas fa-th"></i> -->
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
                   Logout
@@ -177,9 +178,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="content">
         <div class="container-fluid">
           <div class="col-4 p-3">
-            <button type="button" class="btn btn-primary"><a href="create-seminar.html" class="text-white"><i
-                  class="fas fa-plus"></i> Tambah Seminar
-                Baru</a></button>
+            <a href="create-seminar.html" class="btn btn-primary text-white"><i
+              class="fas fa-plus"></i> Tambah Seminar
+            Baru</a>
           </div>
           <div class="card">
             <!-- /.card-header -->
@@ -198,8 +199,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <th style="width: 40px">Action</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
+                  <tbody id="bodyseminar">
+                    <!-- <tr>
                       <td>1.</td>
                       <td>0102001</td>
                       <td>Dieogo Armando</td>
@@ -237,7 +238,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <p><a href="edit-seminar.html"><i class="far fa-edit"></i></a> | <a
                             href="delete-seminar.html"><i class="fas fa-trash-alt"></i></a></p>
                       </td>
-                    </tr>
+                    </tr> -->
                   </tbody>
                 </table>
               </div>
@@ -280,17 +281,51 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="js/DataModel.js"></script>
   <script src="js/Tools.js"></script>
 
-  <script>
-    $( document ).ready(function(){
-      CheckLoginSession("index");
-    });
-    function logout(){
-      localStorage.removeItem('CurrentUser');
+  <script>  
 
-      setTimeout(function(){
-            window.location.href = "login.html"
-          } ,1000);
+  $( document ).ready(function(){
+    CheckLoginSession("seminar");
+    loadGrid();
+  });
+  function logout(){
+    localStorage.removeItem('CurrentUser');
+
+    setTimeout(function(){
+      window.location.href = "login.html"
+    } ,1000);
+  }
+  function loadGrid(){
+    let _htmlEl = $("#bodyseminar");
+
+    let _listSeminar = localStorage.getItem('ListSeminar');
+    if(_listSeminar != null){
+      var _listSeminarObject = JSON.parse(_listSeminar);
+
+      let _htmlString = "";
+
+      for (let i = 0;i < _listSeminarObject.length; i++) {
+          const el = _listSeminarObject[i];
+          _htmlString += "<tr>";
+          _htmlString += "<td>"+el.id+"</td>";
+          _htmlString += "<td>"+el.nim+"</td>";
+          _htmlString += "<td>"+el.nama+"</td>";
+          _htmlString += "<td>"+el.typeseminar+"</td>";
+          _htmlString += "<td>"+el.tgl +" | "+el.jam+"</td>";
+          _htmlString += "<td>"+el.ruang+"</td>";
+          _htmlString += "<td>"+el.listPeserta.length+"</td>";
+          _htmlString += "<td><p><a href='edit-seminar.html?id="+el.id+"'><i class='far fa-edit'></i></a> | <a "+
+                            "href='delete-seminar.html'><i class='fas fa-trash-alt'></i></a></p> </td>";
+
+          _htmlString += "</tr>";
+
+      }
+
+      _htmlEl.html(_htmlString);
+      
     }
+
+  }
+
   </script>
 </body>
 
