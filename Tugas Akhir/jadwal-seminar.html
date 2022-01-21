@@ -51,7 +51,7 @@
                 <a class="nav-link" href="daftar-seminar.html">Daftar Seminar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Berita</a>
+                <a class="nav-link" href="berita-kampus.html">Berita</a>
               </li>
             </ul>
             <form class="d-flex">
@@ -59,6 +59,9 @@
               <a class="nav-link active text-primary" aria-current="page" href="#"><i class="fas fa-search"></i>
               </a>
             </form>
+            <a class="nav-link" onclick="logout()" style="cursor: pointer;">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+            </a>
           </div>
         </div>
       </nav>
@@ -307,6 +310,22 @@
 
   <!-- Java Script -->
   <script src="dist/js/onscroll.js"></script>
+  <script src="js/DataModel.js"></script>
+  <script src="js/Tools.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      CheckLoginSession("home");
+    });
+
+    function logout() {
+      localStorage.removeItem('CurrentUser');
+
+      setTimeout(function () {
+        window.location.href = "login.html"
+      }, 1000);
+    }
+  </script>
 </body>
 
 </html>

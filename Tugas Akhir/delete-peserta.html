@@ -70,7 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-slide="true" href="login.html" role="button">
+          <a class="nav-link" onclick="logout()" style="cursor: pointer;">
             <i class="nav-icon fas fa-sign-out-alt"></i>
           </a>
         </li>
@@ -209,8 +209,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <label for="nama" class="col-4 col-form-label">Nama</label>
                     <div class="col-8">
                       <div class="input-group">
-                        <input class="form-control" type="text" value="Wati" aria-label="Nama" disabled
-                          readonly>
+                        <input class="form-control" type="text" value="Wati" aria-label="Nama" disabled readonly>
                       </div>
                     </div>
                   </div>
@@ -228,7 +227,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-8">
                       <div class="input-group">
                         <div class="form-check col-2">
-                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" disabled>
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                            disabled>
                           <label class="form-check-label" for="flexRadioDefault1">
                             D3
                           </label>
@@ -241,7 +241,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           </label>
                         </div>
                         <div class="form-check col-3">
-                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" disabled>
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3"
+                            disabled>
                           <label class="form-check-label" for="flexRadioDefault3">
                             S1 Fast Trackt
                           </label>
@@ -270,9 +271,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- /.card -->
         </div>
       </div>
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
@@ -291,6 +292,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- admin SISTA App -->
   <script src="dist/js/adminlte.min.js"></script>
+  <script src="js/DataModel.js"></script>
+  <script src="js/Tools.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      CheckLoginSession("index");
+    });
+
+    function logout() {
+      localStorage.removeItem('CurrentUser');
+
+      setTimeout(function () {
+        window.location.href = "login.html"
+      }, 1000);
+    }
+  </script>
 </body>
 
 </html>
